@@ -1,0 +1,66 @@
+.display-title {
+    display: -webkit-inline-box;
+    position: relative;
+}
+
+.h5-title {
+    font-weight: 700;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 10%;
+}
+
+.btn-primary {
+    letter-spacing: 0;
+    font-size: 0.65rem !important;
+    padding: unset !important;
+    height: 36px;
+    width: 110px;
+    margin-top: 8px;
+}
+
+.details-icon {
+    position: absolute;
+    left: 9%;
+    bottom: 30%;
+}
+
+.max-width-line {
+    max-width: 79.133333% !important; 
+}
+
+.form-check-label {
+    font-weight: 600;
+}
+
+.btn-ldap {
+    text-transform: inherit;
+    color: #fff;
+    letter-spacing: 0;
+    font-size: 0.9em !important;
+    font-weight: 600;
+    background-color: #692f74ff !important;
+    border-color:  #692f74ff !important;
+    width: 15.3em !important;
+    height: 49px;
+    border-radius: 0;
+}
+
+.btn-ldap:hover {
+    background-color: transparent !important;
+    color: #692f74ff;
+}
+
+.btn-ldap:hover:active {
+    background-color: #692f74ff !important;
+}
+
+.ldap{
+    padding-left: 236px;
+}
+
+.titles{
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #692f74ff;
+}

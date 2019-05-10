@@ -1,0 +1,11 @@
+.title-sx{
+    padding-left: 34px;
+    font-weight: 800;
+    color: #692f74ff;
+}
+
+.btn-color{
+    background-color: #692f74ff !important;
+    border-color: #692f74ff !important;
+    padding: 0.9em;
+}

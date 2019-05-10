@@ -1,0 +1,63 @@
+#square-div {
+    background-color: #00CC99;
+    color: #fff;
+    padding: 0 2em;
+}
+
+#square-div > span {
+    display: block;
+}
+
+#square-div > span::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    display: block;
+    float: left;
+    margin: 5px 5px 0px 0px;
+}
+
+.one::before {
+    background: #fff;
+}
+
+.modal-size {
+    height: 12em;
+}
+
+.label-square {
+    font-size: 0.9em;
+    font-weight: 700;
+    padding: 2em 1em 0.4em 0;
+    border-bottom: 1px solid #fff;
+}
+
+.fa-check {
+    background-color: #00CC99;
+    color: #fff;
+    font-size: 60px;
+}
+
+h6 {
+    font-weight: 700;
+    color: #427C8F;
+    margin-top: 1em;
+}
+
+.btn-primary {
+    letter-spacing: 0;
+    font-size: 0.65rem !important;
+    padding: unset !important;
+    height: 28px;
+    width: 110px;
+}
+
+.btn:hover {
+    background-color: #00CC99 !important;
+    border-color: #00CC99 !important;
+}
+
+.title-sx{
+    padding-left: 34px;
+    font-weight: 600;
+}

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 offset-4 text-center pt-5">
+      <img class="mb-4" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" alt="" width="72" height="72">
+    </div>
+</div>
+</div>
+<form class="form-signin" [formGroup]="loginForm" (ngSubmit)="login()">
+  <!-- <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+  
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="username" class="sr-only">Username</label>
+  <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""> -->
+  <!-- <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""> -->
+  <input class="form-control" type="text" name="username" formControlName="username" placeholder="Username" autofocus>
+  <label for="password" class="sr-only">Password</label>
+  <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""> -->
+  <input class="form-control rounded-0" type="password" name="password" formControlName="password" placeholder="Password">
+  <!-- <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div> -->
+  <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.valid">Sign in</button>
+  <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+</form>
+

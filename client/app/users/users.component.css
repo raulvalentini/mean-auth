@@ -1,0 +1,9 @@
+.title-color{
+    color: #692e74 !important;
+}
+
+.main-title{
+    border-left: 13px #27dcc0ff solid;
+    padding-left: 0.8em;
+    height: 4.2em;
+}

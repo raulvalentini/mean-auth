@@ -1,0 +1,48 @@
+<div class="modal-size">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 pt-4 px-0" id="square-div">
+        <span class="one label-square title-sx pt-2">LDAP Users</span>
+      </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 pt-3">
+          <input class="form-control float-left mt-2" type="text" name="search" [(ngModel)]="query" placeholder="filter username, role or email user">
+        </div>
+    </div>
+  </div>
+  <div class="modal-body p-4">
+    <div class="row">
+      <table class="table-full-width">
+        <tr class="table-header-row ">
+          <th class="p-2 width-25 table-header"><span (click)="sortUsers('username')">Username <i class="fa details-icon" [ngClass]="{'fa-caret-up': sortDirection === 1 && sortParameter === 'username', 'fa-caret-down': sortDirection === -1 && sortParameter === 'username'}"aria-hidden="true"></i></span></th>
+          <th class="p-2 width-20 table-header"><span (click)="sortUsers('firstname')">Nome <i class="fa details-icon" [ngClass]="{'fa-caret-up': sortDirection === 1 && sortParameter === 'firstname', 'fa-caret-down': sortDirection === -1 && sortParameter === 'firstname'}"aria-hidden="true"></i></span></th>
+          <th class="p-2 width-25 table-header"><span (click)="sortUsers('lastname')">Cognome <i class="fa details-icon" [ngClass]="{'fa-caret-up': sortDirection === 1 && sortParameter === 'lastname', 'fa-caret-down': sortDirection === -1 && sortParameter === 'lastname'}"aria-hidden="true"></i></span></th>
+          <th class="p-2 width-30 table-header"><span (click)="sortUsers('email')">Email <i class="fa details-icon" [ngClass]="{'fa-caret-up': sortDirection === 1 && sortParameter === 'email', 'fa-caret-down': sortDirection === -1 && sortParameter === 'email'}"aria-hidden="true"></i></span></th>
+        </tr>
+        <tr *ngFor="let user of mappedUsers | filter : 'username,lastname,email':query ; let i=index;" [ngClass]="{'row-grey': i%2===0, 'selected-row': selectedUser === user}"
+          (click)="userSelect(user)">
+          <td class="p-2 width-25 fields">{{ user.username }}</td>
+          <td class="p-2 width-20 fields">{{ user.firstname }}</td>
+          <td class="p-2 width-25 fields">{{ user.lastname }}</td>
+          <td class="p-2 width-30 fields">{{ user.email }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="row w-50" style="display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;">
+      <div class="col-lg-5 col-md-5 col-sm-5 pt-2 px-0">
+        <button class="btn btn-color-grey rounded-0 float-right high-contrast" (click)="dismissModal()" style="padding: 15px">
+          <i class="fa fa-times-circle details-icon" aria-hidden="true"></i>CLOSE
+        </button>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-5 pt-2">
+        <button class="btn btn-color rounded-1 float-right high-contrast" (click)="closeModal()" [disabled]="!selectedUser">
+          <i class="fa fa-check-circle details-icon" aria-hidden="true"></i>CONFIRM
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

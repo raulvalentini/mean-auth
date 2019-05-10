@@ -1,0 +1,58 @@
+<!-- <app-toast [message]="toast.message"></app-toast> -->
+<!-- container -> crea un div con questa classe ceh contiene tutto da 2 a 55-->
+<div class="container">
+<div class="row">
+    <div class="col-lg-12 mt-4" style="height:7em">
+      <div class= "main-title">
+          <h1 style="
+          font-size: 2.7rem;
+          font-weight: 700;
+          padding-top: 0.5em;
+          margin: 0;">REGISTR<span _ngcontent-c1="" style="color: #27dcc0ff;">A</span>TION FORM
+          </h1>
+      </div>
+  </div>
+</div> 
+
+<!-- inserirsci una row che contiene col-lg-10 con il form -->
+<div class="row">
+<div class="col-lg-12 bg-white padding-user-settings pt-2 mt-5">
+<!--   <div class="row row-setting">
+    <div class="col-lg-6 col-md-6 col-sm-6 pl-0" id="square-div">
+      <span class="one label-square">Create User</span>
+    </div>
+  </div> -->
+
+  <app-authentication class="bg-white" [authenticationForm]="_authForm" [userAuth]="userSettings"
+    (ldap)="retrieveLdapUsers($event)" (authModeChanged)="onAuthModeChange($event)"></app-authentication>
+  <app-profile class="bg-white" [profileForm]="_profileForm" [userProfile]="userSettings" [_editMode]="editMode"></app-profile>
+  <!-- <app-role-permissions class="bg-white" [roleForm]="_roleForm" [userRoles]="userSettings" [_editMode]="editMode"></app-role-permissions> -->
+
+  <!-- Save Profile-->
+  <div class="row row-profile bg-white">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-12" style="display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;">
+                <button class="btn btn-color-grey rounded-1 float-left high-contrast mr-4" (click)="goToUsersPage()">
+                    <i class="fa fa-times details-icon create-icon-align" aria-hidden="true" style="color: #fff;
+                    vertical-align: text-top;"></i>
+                    <span class="span-position" style="color: white;
+                    font-size: 17px;"> CLOSE </span>
+                  </button>   
+              <button class="btn btn-color rounded-1 float-left high-contrast" (click)="saveUserSettings()" [disabled]="!_profileForm?.valid || !_authForm?.valid">
+                  <i class="fa fa-plus-square details-icon create-icon-align" aria-hidden="true" style="color: #fff;
+                  vertical-align: text-top;"></i>
+                  <span class="span-position" style="color: white;
+                  font-size: 17px;"> {{buttonLabel}} </span>
+                </button>            
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Save Profile-->
+</div>
+</div>
+</div>

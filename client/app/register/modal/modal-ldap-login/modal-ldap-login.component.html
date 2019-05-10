@@ -1,0 +1,35 @@
+<div class="row" [formGroup]="ldapLoginForm" (keyup.enter)="ldapLoginForm.valid && closeModal()">
+    <div class="col-lg-4 bg-aquamarine pt-4 pl-4" id="square-div">
+      <span class="one label-square title-sx">LDAP Login</span>
+    </div>
+    <div class="col-lg-8 pb-4 pl-4 pr-4 pt-4">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-5">
+          <label class="mb-0 input-label">User DN</label>
+          <div class="input-container">
+            <input class="input-field form-control" type="text" name="userDn" formControlName="userDn">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-5 pt-2">
+          <label class="mb-0 input-label">User Password</label>
+          <div class="input-container">
+            <input class="input-field form-control" type="password" name="userPwd" formControlName="userPwd">
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-lg-3 pt-3">
+          <button class="btn btn-secondary rounded-0 float-left high-contrast" (click)="dismissModal()" style="padding:0.9em">
+            <i class="fa fa-times details-icon" aria-hidden="true" ></i> CLOSE
+          </button>
+        </div>
+        <div class="col-lg-9 pl-0 pt-3">
+          <button class="btn btn-primary btn-color rounded-0 float-left high-contrast" type="submit" (click)="closeModal()" [disabled]="!ldapLoginForm.valid">
+            <i class="fa fa-retweet details-icon" aria-hidden="true"></i>CONTINUE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

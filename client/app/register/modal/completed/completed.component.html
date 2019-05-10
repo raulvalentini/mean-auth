@@ -1,0 +1,23 @@
+<div class="row modal-size">
+  <div class="col-lg-5" id="square-div">
+    <span class="one label-square">User Settings</span>
+  </div>
+  <div class="col-lg-7 text-center pt-4 pl-0">
+    <i class="fa fa-check rounded-circle" aria-hidden="true"></i>
+    <h6 *ngIf="editMode && !deleteMode">Update: completed successfully</h6>
+    <h6 *ngIf="!editMode && !deleteMode">Creation: completed successfully</h6>
+    <h6 *ngIf="deleteMode">Delete: deleted successfully</h6>
+    <div class="row mr-3 ml-3">
+      <div class="col-lg-6">
+        <button class="btn btn-primary rounded-1 high-contrast" (click)="closeModal()">
+          CLOSE
+        </button>
+      </div>
+      <div class="col-lg-6 pl-0">
+        <button class="btn btn-primary rounded-1 high-contrast" (click)="closeModal()">
+          CONTINUE
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

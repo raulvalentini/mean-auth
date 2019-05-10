@@ -1,0 +1,22 @@
+.offset{
+    margin-left: 9.6%;
+}
+
+.btn-color{
+    background-color: #692e74 !important;
+    padding: 0.9em;
+    border-radius: 0;
+}
+
+.btn-color-grey{
+    background-color: grey !important;
+    padding: 0.9em;
+    border-radius: 0;
+
+}
+
+.main-title{
+    border-left: 13px #27dcc0ff solid;
+    padding-left: 0.8em;
+    height: 4.2em;
+}

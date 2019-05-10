@@ -1,0 +1,27 @@
+<div class="row row-profile bg-white" [formGroup]="authenticationForm">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="display-title col-lg-4 pr-2 pt-3">
+          <h5 class="title-form titles">Authentication Mode</h5>
+        </div>
+        <div class="col-lg-8 boxes px-0">
+          <div class="row pl-5 pt-4">
+            <div *ngFor="let type of authModes" class="autentication-radio col-lg-6">
+              <input class="form-check-input" type="radio" name="authMode" formControlName="authMode" id="{{type.text}}" [value]="type.value" (change)="authModeChange($event)" />
+              <label class="form-check-label" for="{{type.text}}">
+                {{type.text}}
+              </label>
+              <p class="p-type" [ngClass]="{'w-91': type.value === '0'}">{{type.label}}</p>
+              <button *ngIf="userAuth.authMode === '1' && type.value === '1'" class="btn btn-primary mt-2 btn-ldap mb-3" type="button"
+                data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" (click)="getLdapUsers()">
+                <i class="fa fa-refresh mr-2" aria-hidden="true"></i>LOAD LDAP USERS
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>

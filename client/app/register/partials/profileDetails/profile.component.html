@@ -1,0 +1,120 @@
+<hr>
+
+<div class="row row-profile bg-white" [formGroup]="profileForm">
+  <div class="col-lg-12 mt-4">
+    <div class="row mb-4">
+      <div class="display-title col-lg-4 pr-2 pt-3">
+        <h5 class="title-form titles">Profile Settings</h5>
+      </div>
+      <div class="col-lg-4">
+        <label class="mb-0 input-label profile-label">* Firstname</label>
+        <div class="input-container">
+          <input class="input-field form-control" type="text" name="firstname" formControlName="firstname"
+            [attr.disabled]="userProfile.confirmed ? null : _editMode ? '' : null">
+        </div>
+        <div class="row pl-3 w-100 margin-error">
+          <div class="col-lg-12 pl-0">
+            <!-- <app-custom-error-message [control]="profileForm.controls.firstname" [fieldsName]="'Firstname'" class="errorMessageForm"></app-custom-error-message> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <label class="mb-0 input-label profile-label">* Lastname</label>
+        <div class="input-container">
+          <input class="input-field form-control" type="text" name="lastname" formControlName="lastname"
+            [attr.disabled]="userProfile.confirmed ? null : _editMode ? '' : null">
+        </div>
+        <div class="row pl-3 w-100 margin-error">
+            <div class="col-lg-12 pl-0">
+              <!-- <app-custom-error-message [control]="profileForm.controls.lastname" [fieldsName]="'Lastname'" class="errorMessageForm"></app-custom-error-message> -->
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <label class="mb-0 input-label profile-label" *ngIf="userProfile.authMode === '0' || userProfile.authMode === '1'">* Username</label>
+        <label class="mb-0 input-label" *ngIf="userProfile.authMode === '2'">SAML Username</label>
+        <div class="input-container">
+          <input class="input-field form-control" type="text" name="username" formControlName="username"
+            [attr.disabled]="_editMode ? '' : null">
+        </div>
+        <div class="row pl-3 w-100 margin-error">
+            <div class="col-lg-12 pl-0">
+              <!-- <app-custom-error-message [control]="profileForm.controls.username" [fieldsName]="'Username'" class="errorMessageForm"></app-custom-error-message> -->
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-4">
+        <label class="mb-0 input-label profile-label">* Email</label>
+        <div class="input-container">
+          <input class="input-field form-control" type="text" name="email" formControlName="email"
+             [attr.disabled]="userProfile.confirmed ? null : _editMode ? '' : null">
+        </div>
+        <div class="row pl-3 w-100 margin-error">
+            <div class="col-lg-12 pl-0">
+              <!-- <app-custom-error-message [control]="profileForm.controls.email" [fieldsName]="'Email'" class="errorMessageForm"></app-custom-error-message> -->
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-lg-4"></div>
+      <div class="col-lg-4" *ngIf="userProfile.authMode === '0' && !_editMode">
+        <label class="mb-0 input-label profile-label">* Password</label>
+        <div class="input-container">
+          <input class="input-field form-control" type="password" name="password" formControlName="password" placeholder="Password" [attr.disabled]="this.userProfile.mailNotification ? '' :  userProfile.confirmed ? null : _editMode ? '' : null">
+        </div>
+        <div class="row pl-3 w-100 margin-error">
+            <div class="col-lg-12 pl-0">
+              <!-- <app-custom-error-message [control]="profileForm.controls.password" [fieldsName]="'Password'" class="errorMessageForm"></app-custom-error-message> -->
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-4" *ngIf="userProfile.authMode === '0' && !_editMode">
+        <label class="mb-0 input-label profile-label">* Confirm password</label>
+        <div class="input-container">
+          <input class="input-field form-control" type="password" name="confirmPass" formControlName="confirmPass" placeholder="Confirm Password" [attr.disabled]="this.userProfile.mailNotification ? '' : userProfile.confirmed ? null : _editMode ? '' : null">
+        </div>
+        <div class="row pl-3 w-100 margin-error">
+            <div class="col-lg-12 pl-0">
+            </div>
+          </div>
+      </div>
+      <!-- <div class="col-lg-2">
+        <div class="input-container boxes">
+          <span class="form-group form-check mb-2 send-email">
+            <input type="checkbox" class="align-middle m-0" id="send_email" name="send_email" formControlName="mailNotify" (change)="disablePwd()" [attr.disabled]="userProfile.confirmed ? null : _editMode ? '' : null">
+            <label class="form-check-label input-label" for="send_email">Email Notification</label>
+          </span>
+          <div class="row pl-3 w-100 margin-error">
+              <div class="col-lg-12 pl-0">
+              </div>
+            </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-8 boxes pt-5">
+        <label class="mb-0 input-label d-block profile-label">* User Type</label>
+        <div class="row pl-4">
+            <div class="form-check d-block pt-3 col-lg-6" *ngFor="let type of userTypes">
+                <input class="form-check-input" type="radio" name="userType" id="{{type.text}}" [value]="type.value" (change)="userTypeChanged($event)"
+                   formControlName="userType" [attr.disabled]="userProfile.confirmed ? null : _editMode ? '' : null">
+                <label class="form-check-label" for="{{type.text}}">
+                  {{type.text}}
+                </label>
+                <p class="p-type">{{type.label}}</p>
+              </div>
+        </div>
+
+        <div class="row pl-3 w-100 margin-error">
+            <div class="col-lg-12 pl-0">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
